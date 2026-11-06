@@ -42,14 +42,14 @@ export default function T1_Latihan1(){
                                     Sebuah aplikasi e-commerce memerlukan proses login untuk memberikan akses kepada pengguna. Berikut adalah deskripsi proses login:
                                 </p>
                                 
-                                <p className="font-poppins text-base font-semibold text-black text-justify">
+                                <div className="font-poppins text-base font-semibold text-black text-justify">
                                     <ol className="list-decimal ml-4">
-                                        <li>Employee</li>
-                                        <li>Online Bank Management</li>
-                                        <li>User credentials database</li>
-                                        <li>Email system</li>
+                                        <li>Pengguna menginputkan nama pengguna (username) dan kata sandi (password) pada layar login.</li>
+                                        <li>Database melakukan validasi data yang di inputkan oleh pengguna.</li>
+                                        <li>Jika informasi login valid, pengguna diarahkan ke halaman utama aplikasi.</li>
+                                        <li>Jika informasi login tidak valid, sistem memberikan pesan kesalahan dan meminta pengguna untuk memasukkan informasi yang benar.</li>
                                     </ol>
-                                </p>
+                                </div>
 
                                 <p className="font-poppins text-base font-semibold text-black text-justify">
                                     berdasarkan studi kasus diatas, buatlah sequence diagram dengan benar
@@ -57,7 +57,7 @@ export default function T1_Latihan1(){
                             </div>
 
                             <div className="gap-2 w-full flex flex-col justify-start">
-                                <p className="font-poppins text-sm font-normal text-[#6e767a]">Jawab</p>
+                                <p className="font-poppins text-sm font-normal text-[#2e2d2c]">Jawab</p>
 
                                 <div className="gap-2 w-full p-4 flex-col  flex items-start justify-between h-[465px] rounded-[10px] bg-slate-400">
                                     <NotasiList notasi={notasi}/>

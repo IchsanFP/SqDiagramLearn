@@ -19,3 +19,22 @@
         scrollbar-width: none;  /* Firefox */
   }
 }
+
+/* Focus ring dua warna: garis gelap + halo putih, sehingga terlihat
+   di permukaan terang (#C0C1C8) maupun gelap (#053B50, #232946). */
+@layer base {
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    [tabindex]:focus-visible {
+        outline: 2px solid #111111;
+        outline-offset: 2px;
+        box-shadow: 0 0 0 4px #ffffff;
+    }
+    /* Opsi kuis: tampilkan ring di seluruh kartu jawaban, bukan hanya di radio kecilnya. */
+    label:has(input[type="radio"]:focus-visible) {
+        outline: 2px solid #111111;
+        outline-offset: 2px;
+        box-shadow: 0 0 0 4px #ffffff;
+    }
+}

@@ -26,7 +26,7 @@ export default function Pembahasan4(){
                                         Berikut adalah use case scenario atau deskripsi admin menambahkan barang:
                                     </p>
                                     
-                                    <p className="font-poppins text-base font-semibold text-black text-justify">
+                                    <div className="font-poppins text-base font-semibold text-black text-justify">
                                         <ol className="list-decimal ml-4">
                                             <li>Admin menambahkan barang yang ingin ditambahkan.</li>
                                             <li>Database memvalidasi barang yang ditambahkan.</li>
@@ -34,7 +34,7 @@ export default function Pembahasan4(){
                                                 Berhasil ditambahkan&quot;.</li>
                                             <li>Jika barang tersebut tidak berhasil ditambahkan maka admin akan mendapatkan pesan &quot;Barang Gagal ditambahkan&quot;.</li>
                                         </ol>
-                                    </p>
+                                    </div>
 
                                     <p className="font-poppins text-base font-semibold text-black text-justify">
                                         berdasarkan studi kasus diatas, buatlah sequence diagram dengan benar

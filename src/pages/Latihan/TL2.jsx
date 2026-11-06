@@ -42,14 +42,14 @@ export default function T1_Latihan2(){
                                 Sebuah bioskop ingin membuat sistem reservasi tiket online, dimana pengguna dapat memilih film hingga pembayaran tiket. Berikut adalah deskripsi sistem reservasi tiket online:
                                 </p>
                                 
-                                <p className="font-poppins text-base font-semibold text-black text-justify">
+                                <div className="font-poppins text-base font-semibold text-black text-justify">
                                     <ol className="list-decimal ml-4">
                                         <li>Pengguna memilih film dan jadwal yang diinginkan.</li>
                                         <li>Reservasi menampilkan informasi ketersediaan kursi kepada pengguna.</li>
                                         <li>Pengguna memilih kursi dan melakukan pembayaran.</li>
                                         <li>Reservasi mengirimkan konfirmasi pembayaran dan tiket elektronik kepada pengguna.</li>
                                     </ol>
-                                </p>
+                                </div>
 
                                 <p className="font-poppins text-base font-semibold text-black text-justify">
                                     berdasarkan studi kasus diatas, buatlah sequence diagram dengan benar
@@ -58,7 +58,7 @@ export default function T1_Latihan2(){
                             </div>
 
                             <div className="gap-2 w-full flex flex-col justify-start">
-                                <p className="font-poppins text-sm font-normal text-[#6e767a]">Jawab</p>
+                                <p className="font-poppins text-sm font-normal text-[#2e2d2c]">Jawab</p>
 
                                 <div className="gap-2 w-full p-4 flex-col flex items-start justify-between h-[465px] rounded-[10px] bg-slate-400">
                                     <NotasiList notasi={notasi}/>

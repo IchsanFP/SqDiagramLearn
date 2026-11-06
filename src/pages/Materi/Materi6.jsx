@@ -50,7 +50,7 @@ export default function Materi6() {
             terlibat.
           </Paragraph>
           
-          <Paragraph>
+          <Paragraph as="div">
           <ol className="list-decimal ml-4">
               <li>Employee</li>
               <li>Online Bank Management</li>
@@ -66,7 +66,7 @@ export default function Materi6() {
             yang terjadi pada use case bernama &quot;Create New Bank User Account&quot;.
           </Paragraph>
 
-          <Paragraph>
+          <Paragraph as="div">
             <ol className="list-decimal ml-4">
               <li>The employee meminta sistem untuk membuat akun Bank online baru (Create new online bank account)</li>
               <li>The employee kemudian memilih tipe akun pengguna Bank</li>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-export default function Header({ onNavClick }) {
+export default function Header({ onNavClick = () => {} }) {
     const [scroll, setScroll] = useState(false);
     const location = useLocation();
 
@@ -49,8 +49,8 @@ export default function Header({ onNavClick }) {
 function Logo({ onNavClick, textColor }) {
     return (
         <div className="px-4">
-            <Link to="/" onClick={(e) => onNavClick(e, "/")}>
-                <a className={`block py-6 text-xl font-bold ${textColor} font-quantico`}>sqDiagramLearn</a>
+            <Link to="/" onClick={(e) => onNavClick(e, "/")} className={`block py-6 text-xl font-bold ${textColor} font-quantico`}>
+                sqDiagramLearn
             </Link>
         </div>
     );
@@ -78,13 +78,16 @@ function NavBar({ onNavClick, textColor, navBackground }) {
             <button 
                 name="hamburger" 
                 type="button" 
+                aria-label={toggleNavbar ? "Tutup menu navigasi" : "Buka menu navigasi"}
+                aria-expanded={toggleNavbar}
+                aria-controls="main-nav"
                 className="absolute block cursor-pointer right-4 lg:hidden" 
                 onClick={() => setToggleNavbar(toggleNavbar ? false : true)}
             >
-                <i className={`text-3xl ${textColor} ri-menu-3-line`}></i>
+                <i aria-hidden="true" className={`text-3xl ${textColor} ri-menu-3-line`}></i>
             </button>
 
-            <nav className={`absolute py-5 shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:max-w-full lg:shadow-none lg:rounded-none lg:bg-transparent ${navBackground} shadow-slate-500 ${toggleNavbar ? "block" : "hidden"}`}>
+            <nav id="main-nav" aria-label="Navigasi utama" className={`absolute py-5 shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:max-w-full lg:shadow-none lg:rounded-none lg:bg-transparent ${navBackground} shadow-slate-500 ${toggleNavbar ? "block" : "hidden"}`}>
                 <ul className="block lg:flex">
                     <li className="group">
                         <Link to="/" onClick={(e) => onNavClick(e, "/")} className={linkClass("/")}>Home</Link>

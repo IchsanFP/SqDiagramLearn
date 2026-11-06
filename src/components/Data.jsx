@@ -4,8 +4,8 @@ export const questionsT1 = [
     id: 1,
     question: "Apa yang menjadi fokus utama dari Sequence Diagram dalam UML?",
     options: [
-      { text: "Atribut objek", value: "option1", explanation: "atribut objek tidak menjadi fokus utama dalam Sequence Diagram." },
-      { text: "Warna later belakang", value: "option2", explanation: "Warna latar belakang bukan merupakan fokus utama dari Sequence Diagram" },
+      { text: "Atribut objek", value: "option1", explanation: "Atribut objek tidak menjadi fokus utama dalam Sequence Diagram." },
+      { text: "Warna latar belakang", value: "option2", explanation: "Warna latar belakang bukan merupakan fokus utama dari Sequence Diagram" },
       { text: "Pertukaran pesan antara sejumlah lifelines", value: "option3", explanation: "Pertukaran pesan antara sejumlah lifelines merupakan fokus utama dari Sequence Diagram" },
       { text: "Metode kelas", value: "option4", explanation: "Metode kelas bukan merupakan fokus utama dari Sequence Diagram" },
     ],
@@ -280,7 +280,7 @@ export const notasi = [
   },
   {
       img: NT6,
-      title: "Synchronous Message",
+      title: "Asynchronous Message",
   },
   {
       img: NT7,
@@ -288,7 +288,7 @@ export const notasi = [
   },
   {
       img: NT8,
-      title: "Retrun",
+      title: "Return",
   },
   {
       img: NT9,

@@ -45,14 +45,6 @@ export default function Materi1() {
                     occurrence. Element utama dalam sequence diagram dapat dilihat pada
                     gambar dibawah ini.
                 </Paragraph>
-
-                <Paragraph>
-                    Berikut adalah node dan tepi yang biasanya digambarkan dalam sequence
-                    diagram UML : lifeline, execution specification, message, combined
-                    fragment, interaction use, state invariant, continuation, destruction
-                    occurrence. Element utama dalam sequence diagram dapat dilihat pada
-                    gambar dibawah ini.
-                </Paragraph>
                 <Image src={MT} alt="Element Sequence Diagram" />
             </div>
 

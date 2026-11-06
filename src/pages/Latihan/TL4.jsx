@@ -42,7 +42,7 @@ export default function T1_Latihan4(){
                                 Berikut adalah use case scenario atau deskripsi admin menambahkan barang:
                                 </p>
                                 
-                                <p className="font-poppins text-base font-semibold text-black text-justify">
+                                <div className="font-poppins text-base font-semibold text-black text-justify">
                                     <ol className="list-decimal ml-4">
                                         <li>Admin menambahkan barang yang ingin ditambahkan.</li>
                                         <li>Database memvalidasi barang yang ditambahkan.</li>
@@ -50,7 +50,7 @@ export default function T1_Latihan4(){
                                             Berhasil ditambahkan&quot;.</li>
                                         <li>Jika barang tersebut tidak berhasil ditambahkan maka admin akan mendapatkan pesan &quot;Barang Gagal ditambahkan&quot;.</li>
                                     </ol>
-                                </p>
+                                </div>
 
                                 <p className="font-poppins text-base font-semibold text-black text-justify">
                                     berdasarkan studi kasus diatas, buatlah sequence diagram dengan benar
@@ -59,7 +59,7 @@ export default function T1_Latihan4(){
                             </div>
 
                             <div className="gap-2 w-full flex flex-col justify-start">
-                                <p className="font-poppins text-sm font-normal text-[#6e767a]">Jawab</p>
+                                <p className="font-poppins text-sm font-normal text-[#2e2d2c]">Jawab</p>
 
                                 <div className="gap-2 w-full p-4 flex-col  flex items-start justify-between h-[465px] rounded-[10px] bg-slate-400">
                                     <NotasiList notasi={notasi}/>

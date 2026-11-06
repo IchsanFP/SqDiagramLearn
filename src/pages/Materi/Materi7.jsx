@@ -15,8 +15,9 @@ export default function Materi7() {
       <div className="flex flex-col w-full m-auto gap-9">
         <SectionTitle title="Contoh-contoh Sequence Diagram !!!" />
 
-        <div className="w-full flex justify-start">
+        <div className="w-full flex justify-between">
           <ButtonNavigasi to="/materi/cara-membuat-sequence-diagram" icon="left">Sebelumnya</ButtonNavigasi>
+          <ButtonNavigasi to="/kuis" icon="right">Lanjut ke Kuis</ButtonNavigasi>
         </div>
         
         <div className="flex flex-col justify-center w-full gap-2">
@@ -34,7 +35,7 @@ export default function Materi7() {
             Berikut adalah scenario use casenya :
           </Paragraph>
           
-          <Paragraph>
+          <Paragraph as="div">
             <ol className="list-decimal ml-4">
               <li>Wisatawan sudah membuka aplikasi dan berada di menu search bar.</li>
               <li>Wisatawan memasukan nama dari tempat wisata yang ingin dicari.</li>
@@ -68,7 +69,7 @@ export default function Materi7() {
             Berikut adalah scenario use casenya :
           </Paragraph>
           
-          <Paragraph>
+          <Paragraph as="div">
             <ol className="list-decimal ml-4">
               <li>Pengguna menginputkan username pada halaman registrasi.</li>
               <li>Database melakukan pengecekan username yang diinputkan oleh pengguna.</li>
@@ -102,7 +103,7 @@ export default function Materi7() {
             Berikut adalah scenario use case dari studi kasus Proses Transaksi Belanja Online:
           </Paragraph>
           
-          <Paragraph>
+          <Paragraph as="div">
             <ol className="list-decimal ml-4">
               <li>Customer mencari produk pada website belanja</li>
               <li>Customer menambahkan produk ke keranjang</li>
@@ -132,8 +133,9 @@ export default function Materi7() {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="w-full flex justify-start">
+        <div className="w-full flex justify-between">
           <ButtonNavigasi to="/materi/cara-membuat-sequence-diagram" icon="left">Sebelumnya</ButtonNavigasi>
+          <ButtonNavigasi to="/kuis" icon="right">Lanjut ke Kuis</ButtonNavigasi>
         </div>
       </div>
     </div>

@@ -25,16 +25,21 @@ export default function SidebarLayout({ MateriComponent }){
         <button 
           name="hamburger" 
           type="button" 
+          aria-label={toggleNavbar ? "Tutup daftar materi" : "Buka daftar materi"}
+          aria-expanded={toggleNavbar}
+          aria-controls="materi-sidebar"
           className="hover:shadow-lg hover:shadow-btn block cursor-pointer p-4 text-white bg-notasi rounded-lg fixed z-50  top-[75.984px] lg:hidden" 
           onClick={() => setToggleNavbar(!toggleNavbar)}
         >
-          <i className={`text-3xl text-black ri-menu-line`}></i>
+          <i aria-hidden="true" className={`text-3xl text-black ri-menu-line`}></i>
         </button>
 
         {/* Main Content */}
         <div className="flex flex-1">
           {/* Sidebar */}
-          <div
+          <nav
+            id="materi-sidebar"
+            aria-label="Daftar materi"
             className={`fixed z-40 mt-[135px] lg:mt-0 py-5 shadow-lg shadow-btn lg:shadow-none rounded-lg max-w-[350px] md:max-w-[450px] lg:max-w-max w-full bg-notasi lg:rounded-lg lg:sticky lg:w-1/3 p-5 lg:mr-7 overflow-y-auto no-scrollbar text-white transition-transform duration-300 lg:top-[75.984px] lg:h-[calc(100vh-75.984px)] ${
               toggleNavbar ? "translate-y-0" : "hidden"
             } lg:translate-y-0 lg:block`}
@@ -52,10 +57,12 @@ export default function SidebarLayout({ MateriComponent }){
                   <Link
                     to={menu.path}
                     className="flex-1"
+                    aria-current={location.pathname === menu.path ? "page" : undefined}
                   >
                     {menu.name}
                   </Link>
                   <span
+                    aria-hidden="true"
                     className={`ml-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${
                       location.pathname === menu.path ? "opacity-100" : ""
                     }`}
@@ -65,12 +72,12 @@ export default function SidebarLayout({ MateriComponent }){
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Konten yang akan berubah tergantung pada rute */}
-          <div className="flex-1 p-5 mt-[75.984px] overflow-y-auto rounded-lg bg-notasi">
+          <main className="flex-1 p-5 mt-[75.984px] overflow-y-auto rounded-lg bg-notasi">
             <MateriComponent />
-          </div>
+          </main>
         </div>
       </div>
     </section>

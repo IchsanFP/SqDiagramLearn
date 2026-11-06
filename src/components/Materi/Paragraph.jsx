@@ -1,9 +1,10 @@
 // src/components/Paragraph.jsx
-export default function Paragraph({ children, className = "" }) {
+// `as="div"` dipakai bila isinya berupa daftar (<ol>/<ul>), karena <p> tidak boleh berisi daftar.
+export default function Paragraph({ children, className = "", as: Tag = "p" }) {
     return (
-      <p className={`text-lg font-normal text-justify text-black font-poppins ${className}`}>
+      <Tag className={`text-lg font-normal text-left md:text-justify text-black font-poppins ${className}`}>
         {children}
-      </p>
+      </Tag>
     );
   }
   

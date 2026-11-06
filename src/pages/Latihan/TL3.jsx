@@ -43,7 +43,7 @@ export default function T1_Latihan3(){
                                 scenario atau deskripsi pemesanan kamar hotel:
                                 </p>
                                 
-                                <p className="font-poppins text-base font-semibold text-black text-justify">
+                                <div className="font-poppins text-base font-semibold text-black text-justify">
                                     <ol className="list-decimal ml-4">
                                         <li>Pengguna sudah masuk kedalam aplikasi pemesanan kamar hotel.</li>
                                         <li>Pengguna memilih kamar yang diinginkan.</li>
@@ -55,7 +55,7 @@ export default function T1_Latihan3(){
                                         <li>Resepsionis mengkonfirmasi pemesanan dan pembayaran.</li>
                                         <li>Pengguna menerima konfirmasi pemesanan dan pembayaran.</li>
                                     </ol>
-                                </p>
+                                </div>
 
                                 <p className="font-poppins text-base font-semibold text-black text-justify">
                                     berdasarkan studi kasus diatas, buatlah sequence diagram dengan benar
@@ -64,7 +64,7 @@ export default function T1_Latihan3(){
                             </div>
 
                             <div className="gap-2 w-full flex flex-col justify-start">
-                                <p className="font-poppins text-sm font-normal text-[#6e767a]">Jawab</p>
+                                <p className="font-poppins text-sm font-normal text-[#2e2d2c]">Jawab</p>
 
                                 <div className="gap-2 w-full p-4 flex-col  flex items-start justify-between h-[465px] rounded-[10px] bg-slate-400">
                                     <NotasiList notasi={notasi}/>

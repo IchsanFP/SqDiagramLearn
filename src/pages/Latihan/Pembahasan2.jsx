@@ -25,14 +25,14 @@ export default function Pembahasan2(){
                                         Sebuah bioskop ingin membuat sistem reservasi tiket online, dimana pengguna dapat memilih film hingga pembayaran tiket. Berikut adalah deskripsi sistem reservasi tiket online:
                                     </p>
                                     
-                                    <p className="font-poppins text-base font-semibold text-black text-justify">
+                                    <div className="font-poppins text-base font-semibold text-black text-justify">
                                         <ol className="list-decimal ml-4">
                                             <li>Pengguna memilih film dan jadwal yang diinginkan.</li>
                                             <li>Reservasi menampilkan informasi ketersediaan kursi kepada pengguna.</li>
                                             <li>Pengguna memilih kursi dan melakukan pembayaran.</li>
                                             <li>Reservasi mengirimkan konfirmasi pembayaran dan tiket elektronik kepada pengguna.</li>
                                         </ol>
-                                    </p>
+                                    </div>
 
                                     <p className="font-poppins text-base font-semibold text-black text-justify">
                                         berdasarkan studi kasus diatas, buatlah sequence diagram dengan benar

@@ -27,6 +27,7 @@ import Pembahasan3 from "./pages/Latihan/Pembahasan3.jsx";
 import Pembahasan4 from "./pages/Latihan/Pembahasan4.jsx";
 
 import ScrollToTop from './components/ScrollToTop'
+import NotFound from "./pages/NotFound.jsx";
 
 
 // export const router = createBrowserRouter(
@@ -69,6 +70,7 @@ export const router = createBrowserRouter([
         <HomePage />
       </>
     ),
+   errorElement: <NotFound />,
   },
   {
     path: "/materi/sequence-diagram",
@@ -258,5 +260,9 @@ export const router = createBrowserRouter([
         <Pembahasan4 />
       </>
     ),
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);

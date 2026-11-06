@@ -26,14 +26,14 @@ export default function Pembahasan1(){
                                         Sebuah aplikasi e-commerce memerlukan proses login untuk memberikan akses kepada pengguna. Berikut adalah deskripsi proses login:
                                     </p>
                                     
-                                    <p className="font-poppins text-base font-semibold text-black text-justify">
+                                    <div className="font-poppins text-base font-semibold text-black text-justify">
                                         <ol className="list-decimal ml-4">
                                         <li>Pengguna menginputkan nama pengguna (username) dan kata sandi (password) pada layar login.</li>
                                         <li>Database melakukan validasi data yang di inputkan oleh pengguna.</li>
                                         <li>Jika informasi login valid, pengguna diarahkan ke halaman utama aplikasi.</li>
                                         <li>Jika informasi login tidak valid, sistem memberikan pesan kesalahan dan meminta pengguna untuk memasukkan informasi yang benar.</li>
                                         </ol>
-                                    </p>
+                                    </div>
 
                                     <p className="font-poppins text-base font-semibold text-black text-justify">
                                         berdasarkan studi kasus diatas, buatlah sequence diagram dengan benar

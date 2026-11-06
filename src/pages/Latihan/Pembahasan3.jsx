@@ -25,7 +25,7 @@ export default function Pembahasan3(){
                                         Sebuah Hotel ingin membuat sebuah aplikasi pemesanan kamar hotel. Berikut adalah use case scenario atau deskripsi pemesanan kamar hotel:
                                     </p>
                                     
-                                    <p className="font-poppins text-base font-semibold text-black text-justify">
+                                    <div className="font-poppins text-base font-semibold text-black text-justify">
                                         <ol className="list-decimal ml-4">
                                             <li>Pengguna sudah masuk kedalam aplikasi pemesanan kamar hotel.</li>
                                             <li>Pengguna memilih kamar yang diinginkan.</li>
@@ -39,7 +39,7 @@ export default function Pembahasan3(){
                                             <li>Resepsionis mengkonfirmasi pemesanan dan pembayaran.</li>
                                             <li>Pengguna menerima konfirmasi pemesanan dan pembayaran.</li>
                                         </ol>
-                                    </p>
+                                    </div>
 
                                     <p className="font-poppins text-base font-semibold text-black text-justify">
                                         berdasarkan studi kasus diatas, buatlah sequence diagram dengan benar
