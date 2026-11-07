@@ -1,5 +1,27 @@
+import type { Notasi, Question } from "../types";
+import Notasi1 from "../assets/Notasi/notasi2.png";
+import Notasi2 from "../assets/Notasi/notasi9.png";
+import NT1 from "../assets/Notasi/notasi1.png";
+import NT2 from "../assets/Notasi/notasi2.png";
+import NT3 from "../assets/Notasi/notasi3.png";
+import NT4 from "../assets/Notasi/notasi4.png";
+import NT5 from "../assets/Notasi/notasi5.png";
+import NT6 from "../assets/Notasi/notasi6.png";
+import NT7 from "../assets/Notasi/notasi7.png";
+import NT8 from "../assets/Notasi/notasi8.png";
+import NT9 from "../assets/Notasi/notasi9.png";
+import NT10 from "../assets/Notasi/notasi10.png";
+import NT11 from "../assets/Notasi/notasi11.png";
+import NT12 from "../assets/Notasi/notasi12.png";
+import NT13 from "../assets/Notasi/notasi13.png";
+import NT14 from "../assets/Notasi/notasi14.png";
+import NT15 from "../assets/Notasi/notasi15.png";
+import NT16 from "../assets/Notasi/notasi16.png";
+import NT17 from "../assets/Notasi/notasi17.png";
+import NT18 from "../assets/Notasi/notasi18.png";
+
 // Kuis 
-export const questionsT1 = [
+export const questionsT1: Question[] = [
   {
     id: 1,
     question: "Apa yang menjadi fokus utama dari Sequence Diagram dalam UML?",
@@ -55,7 +77,7 @@ export const questionsT1 = [
   },
 ];
 
-export const questionsT2 = [
+export const questionsT2: Question[] = [
   {
     id: 1,
     question: "Apa fungsi dari Lifeline notation dalam sequence diagram?",
@@ -113,7 +135,7 @@ export const questionsT2 = [
   },
 ];
 
-export const questionsT3 = [
+export const questionsT3: Question[] = [
   {
     id: 1,
     question: "Apa yang maksud/tujuan dari message arrow pada sequence diagram?",
@@ -171,13 +193,10 @@ export const questionsT3 = [
   },
 ];
 
-import Notasi1 from "../assets/Notasi/notasi2.png";
-import Notasi2 from "../assets/Notasi/notasi9.png";
 
-export const questionsT4 = [
+export const questionsT4: Question[] = [
   {
     id: 1,
-    imgSrc:"",
     question: "Apa tujuan digunakannya simbol 'activation bar' pada lifeline dalam sequence diagram?",
     options: [
       { text: "Durasi dari interaksi", value: "option1", explanation: "Durasi dari interaksi bukan tujuan digunakannya simbol 'activation bar'" },
@@ -192,7 +211,7 @@ export const questionsT4 = [
     question: "Apa nama notasi dibawah ini",
     imgSrc: Notasi1,
     options: [
-      { text: "Boundary Class", value: "option1", explanation: "" },
+      { text: "Boundary Class", value: "option1", explanation: "Benar, notasi tersebut adalah Boundary Class, yang menunjukkan batas antara sistem dan aktor (misalnya antarmuka pengguna)." },
       { text: "Entity Class", value: "option2", explanation: "Nama notasi tersebut bukan Entity Class" },
       { text: "Control Class", value: "option3", explanation: "Nama notasi tersebut bukan Control Class" },
       { text: "Destruction", value: "option4", explanation: "Nama notasi tersebut bukan Destruction" },
@@ -202,7 +221,6 @@ export const questionsT4 = [
   {
     id: 3,
     question: "Notasi apa yang digunakan untuk merepresentasikan objek-objek yang menyimpan data atau informasi yang penting untuk sistem?",
-    imgSrc:"",
     options: [
       { text: "Boundary Class", value: "option1", explanation: "Boundary Class digunakan untuk menunjukkan batas sistem/elemen perangkat lunak dalam suatu sistem." },
       { text: "Entity Class", value: "option2", explanation: "Entity Class digunakan untuk merepresentasikan objek-objek yang menyimpan data atau informasi yang penting untuk sistem." },
@@ -214,7 +232,6 @@ export const questionsT4 = [
   {
     id: 4,
     question: "Apa dari blok 'alt' dalam sequence diagram?",
-    imgSrc:"",
     options: [
       { text: "Menyusun objek", value: "option1", explanation: "Menyusun objek bukan tujuan dari blok 'alt'." },
       { text: "Menghapus objek", value: "option2", explanation: "Menghapus objek bukan tujuan dari blok 'alt'." },
@@ -238,26 +255,8 @@ export const questionsT4 = [
 ];
 
 // Notasi untuk latihan
-import NT1 from "../assets/Notasi/notasi1.png";
-import NT2 from "../assets/Notasi/notasi2.png";
-import NT3 from "../assets/Notasi/notasi3.png";
-import NT4 from "../assets/Notasi/notasi4.png";
-import NT5 from "../assets/Notasi/notasi5.png";
-import NT6 from "../assets/Notasi/notasi6.png";
-import NT7 from "../assets/Notasi/notasi7.png";
-import NT8 from "../assets/Notasi/notasi8.png";
-import NT9 from "../assets/Notasi/notasi9.png";
-import NT10 from "../assets/Notasi/notasi10.png";
-import NT11 from "../assets/Notasi/notasi11.png";
-import NT12 from "../assets/Notasi/notasi12.png";
-import NT13 from "../assets/Notasi/notasi13.png";
-import NT14 from "../assets/Notasi/notasi14.png";
-import NT15 from "../assets/Notasi/notasi15.png";
-import NT16 from "../assets/Notasi/notasi16.png";
-import NT17 from "../assets/Notasi/notasi17.png";
-import NT18 from "../assets/Notasi/notasi18.png";
 
-export const notasi = [
+export const notasi: Notasi[] = [
   {
       img: NT1,
       title: "Actor",

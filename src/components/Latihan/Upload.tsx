@@ -4,13 +4,13 @@ import { getJawaban, setJawaban } from "./jawabanStore";
 
 const MAX_MB = 10;
 
-export default function FileUpload({ latihanId }) {
+export default function FileUpload({ latihanId }: { latihanId: string }) {
   const inputId = useId();
   const [jawaban, setJawabanState] = useState(() => getJawaban(latihanId));
   const [error, setError] = useState("");
   const [dragOver, setDragOver] = useState(false);
 
-  const handleFile = (file) => {
+  const handleFile = (file: File | undefined) => {
     if (!file) return;
     if (!file.type.startsWith("image/")) {
       setError("File harus berupa gambar (PNG, JPG, atau SVG).");
@@ -46,7 +46,7 @@ export default function FileUpload({ latihanId }) {
           </div>
         </div>
         <img src={jawaban.url} alt="Pratinjau sequence diagram yang Anda unggah" className="max-h-[480px] w-auto m-auto rounded-lg bg-white" />
-        <input id={inputId} type="file" accept="image/*" className="sr-only" onChange={(e) => handleFile(e.target.files[0])} />
+        <input id={inputId} type="file" accept="image/*" className="sr-only" onChange={(e) => handleFile(e.target.files?.[0])} />
         {error && <p role="alert" className="text-sm font-medium text-danger">{error}</p>}
       </div>
     );
@@ -58,7 +58,7 @@ export default function FileUpload({ latihanId }) {
         htmlFor={inputId}
         onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
         onDragLeave={() => setDragOver(false)}
-        onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFile(e.dataTransfer.files[0]); }}
+        onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFile(e.dataTransfer.files?.[0]); }}
         className={`w-full flex p-10 border-2 border-dashed border-navy rounded-lg cursor-pointer transition hover:bg-option ${dragOver ? "bg-option" : ""}`}
       >
         <span className="flex flex-col m-auto justify-center items-center gap-1 text-center font-poppins">
@@ -66,7 +66,7 @@ export default function FileUpload({ latihanId }) {
           <span className="text-sm font-semibold text-black">Unggah gambar sequence diagram Anda</span>
           <span className="text-sm text-muted">Klik atau seret file ke sini · PNG, JPG, SVG · maks. {MAX_MB} MB</span>
         </span>
-        <input id={inputId} type="file" accept="image/*" className="sr-only" onChange={(e) => handleFile(e.target.files[0])} />
+        <input id={inputId} type="file" accept="image/*" className="sr-only" onChange={(e) => handleFile(e.target.files?.[0])} />
       </label>
       {error && <p role="alert" className="text-sm font-medium text-danger">{error}</p>}
     </div>

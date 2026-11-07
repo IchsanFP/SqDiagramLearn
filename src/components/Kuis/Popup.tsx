@@ -2,9 +2,18 @@ import IconX from "../../assets/iconX.svg"
 import iconCeklis from "../../assets/iconCeklis.svg"
 import Modal from "./Modal";
 
+interface PopupProps {
+  explanation: string;
+  isCorrect: boolean;
+  onClose: () => void;
+  onNext: () => void;
+  isLastQuestion: boolean;
+  onFinish: () => void;
+}
+
 const buttonClass = "btn-primary px-6 py-3";
 
-export default function Popup({ explanation, isCorrect, onClose, onNext, isLastQuestion, onFinish }) {
+export default function Popup({ explanation, isCorrect, onClose, onNext, isLastQuestion, onFinish }: PopupProps) {
     return (
       <Modal
         labelledBy="feedback-title"

@@ -1,21 +1,31 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
+
+interface ModalProps {
+  labelledBy: string;
+  describedBy?: string;
+  /** Dipanggil saat Esc ditekan; biarkan kosong agar Esc tidak menutup dialog. */
+  onEscape?: () => void;
+  className?: string;
+  children: ReactNode;
+}
 
 // Dialog modal yang aksesibel: role="dialog", fokus otomatis ke [data-autofocus]
 // (atau tombol pertama),
 // fokus terkunci di dalam dialog (Tab/Shift+Tab), Esc memanggil onEscape,
 // dan fokus dikembalikan ke elemen sebelumnya saat dialog ditutup.
-export default function Modal({ labelledBy, describedBy, onEscape, className = "", children }) {
-  const dialogRef = useRef(null);
+export default function Modal({ labelledBy, describedBy, onEscape, className = "", children }: ModalProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
   const escapeRef = useRef(onEscape);
   escapeRef.current = onEscape;
 
   useEffect(() => {
-    const previouslyFocused = document.activeElement;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
     const dialog = dialogRef.current;
-    const focusables = () => [...dialog.querySelectorAll("button, a[href], input, [tabindex]:not([tabindex='-1'])")];
-    (dialog.querySelector("[data-autofocus]") || focusables()[0])?.focus();
+    if (!dialog) return;
+    const focusables = () => [...dialog.querySelectorAll<HTMLElement>("button, a[href], input, [tabindex]:not([tabindex='-1'])")];
+    (dialog.querySelector<HTMLElement>("[data-autofocus]") ?? focusables()[0])?.focus();
 
-    const onKeyDown = (e) => {
+    const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && escapeRef.current) {
         e.preventDefault();
         escapeRef.current();
@@ -38,7 +48,7 @@ export default function Modal({ labelledBy, describedBy, onEscape, className = "
     document.addEventListener("keydown", onKeyDown);
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      previouslyFocused?.focus?.();
+      previouslyFocused?.focus();
     };
   }, []);
 

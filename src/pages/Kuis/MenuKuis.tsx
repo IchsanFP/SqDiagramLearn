@@ -27,7 +27,7 @@ const menu = [
 export default function MenuKuis(){
     const navigate = useNavigate();
 
-    const handleNavigate = (path) => {
+    const handleNavigate = (path: string) => {
         navigate(path);
     };
 

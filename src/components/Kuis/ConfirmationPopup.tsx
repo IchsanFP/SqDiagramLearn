@@ -1,6 +1,6 @@
 import Modal from "./Modal";
 
-export default function ConfirmationPopup({ onClose, onConfirm }) {
+export default function ConfirmationPopup({ onClose, onConfirm }: { onClose: () => void; onConfirm: () => void }) {
   return (
     <Modal
       labelledBy="confirm-title"

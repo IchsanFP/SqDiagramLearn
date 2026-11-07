@@ -3,7 +3,7 @@ import { getJawaban } from "./jawabanStore";
 
 // Ditampilkan di halaman Pembahasan: gambar yang diunggah siswa, untuk dibandingkan
 // dengan jawaban yang benar. Bila belum ada unggahan, beri jalan kembali ke soal.
-export default function JawabanSaya({ latihanId, soalPath }) {
+export default function JawabanSaya({ latihanId, soalPath }: { latihanId: string; soalPath: string }) {
   const jawaban = getJawaban(latihanId);
 
   return (

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import type { MouseEvent } from "react";
+import type { NavClickHandler } from "../types";
 
 // Tinggi header dipakai juga oleh Sidebar (offset sticky). Ubah keduanya bersamaan.
 export const HEADER_HEIGHT = 76;
 
-const NAV_ITEMS = [
+const NAV_ITEMS: { label: string; to: string; match: (path: string) => boolean }[] = [
     { label: "Home", to: "/", match: (p) => p === "/" },
     { label: "Materi", to: "/materi/sequence-diagram", match: (p) => p.startsWith("/materi") },
     { label: "Kuis", to: "/kuis", match: (p) => p.startsWith("/kuis") },
@@ -13,11 +15,13 @@ const NAV_ITEMS = [
 
 // Header selalu navy di semua halaman (aturan: navy = identitas & struktur).
 // Item aktif memakai aksen pink, yang hanya boleh dipakai di atas navy.
-export default function Header({ onNavClick = () => {} }) {
+const noop: NavClickHandler = () => {};
+
+export default function Header({ onNavClick = noop }: { onNavClick?: NavClickHandler }) {
     const [menuOpen, setMenuOpen] = useState(false);
     const { pathname } = useLocation();
 
-    const handleClick = (e, to) => {
+    const handleClick = (e: MouseEvent<HTMLAnchorElement>, to: string) => {
         setMenuOpen(false);
         onNavClick(e, to);
     };

@@ -1,8 +1,9 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
-import RootLayout from "./components/RootLayout.jsx";
-import HomePage from "./pages/HomePage.jsx";
-import NotFound from "./pages/NotFound.jsx";
+import type { ReactElement } from "react";
+import RootLayout, { type RouteHandle } from "./components/RootLayout";
+import HomePage from "./pages/HomePage";
+import NotFound from "./pages/NotFound";
 
 import M1 from "./pages/Materi/M1";
 import M2 from "./pages/Materi/M2";
@@ -12,23 +13,27 @@ import M5 from "./pages/Materi/M5";
 import M6 from "./pages/Materi/M6";
 import M7 from "./pages/Materi/M7";
 
-import MenuKuis from "./pages/Kuis/MenuKuis.jsx";
-import T1 from "./pages/Kuis/T1.jsx";
-import T2 from "./pages/Kuis/T2.jsx";
-import T3 from "./pages/Kuis/T3.jsx";
-import T4 from "./pages/Kuis/T4.jsx";
+import MenuKuis from "./pages/Kuis/MenuKuis";
+import T1 from "./pages/Kuis/T1";
+import T2 from "./pages/Kuis/T2";
+import T3 from "./pages/Kuis/T3";
+import T4 from "./pages/Kuis/T4";
 
-import MenuLatihan from "./pages/Latihan/MenuLatihan.jsx";
-import TL1 from "./pages/Latihan/TL1.jsx";
-import TL2 from "./pages/Latihan/TL2.jsx";
-import TL3 from "./pages/Latihan/TL3.jsx";
-import TL4 from "./pages/Latihan/TL4.jsx";
-import Pembahasan1 from "./pages/Latihan/Pembahasan1.jsx";
-import Pembahasan2 from "./pages/Latihan/Pembahasan2.jsx";
-import Pembahasan3 from "./pages/Latihan/Pembahasan3.jsx";
-import Pembahasan4 from "./pages/Latihan/Pembahasan4.jsx";
+import MenuLatihan from "./pages/Latihan/MenuLatihan";
+import TL1 from "./pages/Latihan/TL1";
+import TL2 from "./pages/Latihan/TL2";
+import TL3 from "./pages/Latihan/TL3";
+import TL4 from "./pages/Latihan/TL4";
+import Pembahasan1 from "./pages/Latihan/Pembahasan1";
+import Pembahasan2 from "./pages/Latihan/Pembahasan2";
+import Pembahasan3 from "./pages/Latihan/Pembahasan3";
+import Pembahasan4 from "./pages/Latihan/Pembahasan4";
 
-const page = (path, element, title) => ({ path, element, handle: { title } });
+const page = (path: string, element: ReactElement, title: string) => ({
+  path,
+  element,
+  handle: { title } satisfies RouteHandle,
+});
 
 export const router = createBrowserRouter([
   {

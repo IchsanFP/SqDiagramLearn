@@ -1,4 +1,12 @@
-export default function QuestionCard({ id, total, imgSrc, question, options, selectedAnswer, onAnswerChange }) {
+import type { AnswerOption as Option, OptionValue, Question } from "../../types";
+
+interface QuestionCardProps extends Omit<Question, "correctAnswer"> {
+  total: number;
+  selectedAnswer: OptionValue | null;
+  onAnswerChange: (value: OptionValue) => void;
+}
+
+export default function QuestionCard({ id, total, imgSrc, question, options, selectedAnswer, onAnswerChange }: QuestionCardProps) {
   return (
     <div className="flex flex-col gap-6 lg:flex-row lg:gap-9 max-w-full sm:max-w-[1024px] justify-between">
       <div className="w-full lg:w-[172px] lg:shrink-0 flex flex-col gap-2">
@@ -21,14 +29,14 @@ export default function QuestionCard({ id, total, imgSrc, question, options, sel
           <p className="text-base font-semibold text-justify text-black font-poppins">
             {question}
           </p>
-          <img src={imgSrc} alt="" className="m-auto" />
+          {imgSrc && <img src={imgSrc} alt="Gambar notasi untuk soal ini" className="m-auto mt-4" />}
         </div>
         <div className="flex flex-col justify-start w-full gap-2">
           <p className="font-poppins text-sm font-normal text-muted">Pilih satu jawaban</p>
           <div className="flex flex-col w-full gap-2">
-            {options.map((option, index) => (
+            {options.map((option) => (
               <AnswerOption
-                key={index}
+                key={option.value}
                 option={option}
                 selectedAnswer={selectedAnswer}
                 onAnswerChange={onAnswerChange}
@@ -42,7 +50,13 @@ export default function QuestionCard({ id, total, imgSrc, question, options, sel
 }
 
 // Komponen untuk Pilihan Jawaban
-function AnswerOption({ option, selectedAnswer, onAnswerChange }) {
+interface AnswerOptionProps {
+  option: Option;
+  selectedAnswer: OptionValue | null;
+  onAnswerChange: (value: OptionValue) => void;
+}
+
+function AnswerOption({ option, selectedAnswer, onAnswerChange }: AnswerOptionProps) {
   return (
     <label className="rounded-lg px-6 py-4 w-full bg-option flex items-center gap-2 cursor-pointer">
       <input
@@ -50,7 +64,7 @@ function AnswerOption({ option, selectedAnswer, onAnswerChange }) {
         name="answer"
         value={option.value}
         className="w-4 shrink-0"
-        onChange={onAnswerChange}
+        onChange={() => onAnswerChange(option.value)}
         checked={selectedAnswer === option.value}
       />
       <span className="text-base font-normal text-black font-poppins">{option.text}</span>

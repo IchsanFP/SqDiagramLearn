@@ -4,15 +4,16 @@ import Navbar from "../../components/Header";
 import Popup from "./Popup"
 import ConfirmationPopup from "./ConfirmationPopup"
 import QuestionCard from "./QuestionCard"
+import type { NavClickHandler, OptionValue, Question } from "../../types";
 
 
-export default function SoalKuis({ questions }) {
+export default function SoalKuis({ questions }: { questions: Question[] }) {
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [nextPage, setNextPage] = useState(null);
+  const [nextPage, setNextPage] = useState<string | null>(null);
   const navigate = useNavigate();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [isCorrect, setIsCorrect] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState<OptionValue | null>(null);
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [showPopup, setShowPopup] = useState(false);
   const [selectedExplanation, setSelectedExplanation] = useState("");
   // Skor = jumlah soal yang dijawab benar pada percobaan pertama.
@@ -36,7 +37,7 @@ export default function SoalKuis({ questions }) {
   }, [questions]);
 
   // Handler
-  const handleNavClick = (event, to) => {
+  const handleNavClick: NavClickHandler = (event, to) => {
     event.preventDefault();
     setNextPage(to);
     setShowConfirmation(true);
@@ -54,7 +55,7 @@ export default function SoalKuis({ questions }) {
       setIsCorrect(correct);
       if (correct && !missedCurrent) setScore((s) => s + 1);
       if (!correct) setMissedCurrent(true);
-      setSelectedExplanation(selectedOption.explanation);
+      setSelectedExplanation(selectedOption?.explanation ?? "");
       setShowPopup(true);
     }
   };
@@ -127,7 +128,7 @@ export default function SoalKuis({ questions }) {
               question={currentQuestion.question}
               options={currentQuestion.options}
               selectedAnswer={selectedAnswer}
-              onAnswerChange={(e) => setSelectedAnswer(e.target.value)}
+              onAnswerChange={setSelectedAnswer}
             />
             <div className="flex justify-end">
               <button
@@ -143,7 +144,7 @@ export default function SoalKuis({ questions }) {
         {showPopup && (
           <Popup
             explanation={selectedExplanation}
-            isCorrect={isCorrect}
+            isCorrect={isCorrect === true}
             onClose={() => setShowPopup(false)}
             onNext={handleNextQuestion}
             isLastQuestion={isLastQuestion}

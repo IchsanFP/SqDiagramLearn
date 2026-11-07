@@ -1,6 +1,8 @@
+import type { Notasi } from "../../types";
+
 // Palet referensi notasi: grid penuh tanpa tinggi tetap, sehingga semua notasi
 // terlihat sekaligus dan label tidak terpotong.
-export default function NotasiList({ notasi }) {
+export default function NotasiList({ notasi }: { notasi: Notasi[] }) {
   return (
     <ul className="grid w-full grid-cols-3 gap-3 p-4 rounded-lg sm:grid-cols-4 md:grid-cols-6 bg-panel">
       {notasi.map((menu) => (

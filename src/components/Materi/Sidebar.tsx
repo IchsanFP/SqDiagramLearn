@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, type ComponentType } from 'react';
 import Navbar, { HEADER_HEIGHT } from '../../components/Header';
 
 const MATERI = [
@@ -45,7 +45,7 @@ function MateriList() {
   );
 }
 
-export default function SidebarLayout({ MateriComponent }) {
+export default function SidebarLayout({ MateriComponent }: { MateriComponent: ComponentType }) {
   const { pathname } = useLocation();
   const [listOpen, setListOpen] = useState(false);
   const currentIndex = MATERI.findIndex((m) => m.path === pathname);
