@@ -18,7 +18,7 @@ export default function Materi5() {
         </div>
         
         <div className="flex flex-col justify-center w-full gap-2">
-          <Image src={MT1} alt="Activion Bar" />
+          <Image src={MT1} alt="Activation Bar" />
           
           <Paragraph>
             Activion Bar adalah kotak yang ditempatkan pada lifeline. Ini digunakan untuk menunjukkan bahwa suatu objek aktif (atau dipakai) selama interaksi antara dua objek. Panjang persegi panjang menunjukkan durasi objek tetap aktif.

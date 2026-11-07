@@ -41,7 +41,7 @@ export default function MenuLatihan(){
                             {menu.map((p_menu, index) => (
                                 <div key={index} className="p-3 items-center flex flex-col border-2 bg-card border-navy w-full rounded-lg">
                                     <div className="flex flex-col w-full gap-1">
-                                        <h1 className="text-base font-semibold text-black md:text-xl font-poppins">{p_menu.title}</h1>
+                                        <h2 className="text-base font-semibold text-black md:text-xl font-poppins">{p_menu.title}</h2>
                                         <p className="text-black font-normal text-sm md:text-base font-poppins max-w-[350px]">{p_menu.subtitle}</p>
                                     </div>
                                     <div className="flex justify-end w-full">

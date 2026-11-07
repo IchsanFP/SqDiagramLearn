@@ -14,8 +14,8 @@ export default function T1_Latihan3(){
             <div className="container">
                 <div className="flex flex-col m-auto max-w-[1024px] gap-3">
                     <div className="flex gap-9 flex-col lg:flex-row max-w-[1090px] justify-between">
-                        <div className="w-[142px]">
-                            <p className="font-poppins text-base font-semibold text-black">Pertanyaan  <span className="text-xl">1</span> </p>
+                        <div className="w-full lg:w-[172px] lg:shrink-0">
+                            <h1 className="font-poppins text-black"><span className="block text-sm font-normal text-muted">Studi kasus</span><span className="block text-base font-semibold">Sistem Pemesanan Kamar Hotel</span></h1>
                         </div>
 
                         <div className="flex w-full flex-col gap-9 border-2 rounded-lg border-navy px-12 py-5">
@@ -55,7 +55,7 @@ export default function T1_Latihan3(){
                     </div>
 
                     <div className="w-full flex justify-end">
-                        <ButtonNav to="/latihanT3/pembahasanT3">Selesai</ButtonNav>
+                        <ButtonNav to="/latihan/T3/pembahasan">Selesai</ButtonNav>
                     </div>
                 </div>
             </div>

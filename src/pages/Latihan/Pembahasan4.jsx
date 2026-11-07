@@ -15,8 +15,8 @@ export default function Pembahasan4(){
                         Pembahasan
                     </h1>
                     <div className="flex gap-9 flex-col lg:flex-row max-w-[1090px] justify-between">
-                        <div className="w-[142px]">
-                            <p className="font-poppins text-base font-semibold text-black">Pertanyaan  <span className="text-xl">1</span> </p>
+                        <div className="w-full lg:w-[172px] lg:shrink-0">
+                            <h2 className="font-poppins text-black"><span className="block text-sm font-normal text-muted">Studi kasus</span><span className="block text-base font-semibold">Manajemen Barang Toko Online</span></h2>
                         </div>
 
                         <div className="flex flex-col w-full gap-9">
@@ -46,7 +46,7 @@ export default function Pembahasan4(){
                             <div className="flex flex-col w-full gap-2">
                                 <JawabanSaya latihanId="T4" soalPath="/latihan/T4" />
                                 <h2 className="text-black font-poppins text-lg font-semibold mt-6">Jawaban yang benar :</h2>
-                                <Image src={P4} alt="" />
+                                <Image src={P4} alt="Kunci jawaban: aktor Admin dan objek MenambahBarang serta Database. Admin menambahkan barang, MenambahBarang meneruskannya ke Database, Database memvalidasi data. Blok alt: jika berhasil, Admin menerima pesan “Barang berhasil ditambahkan”; jika gagal, pesan “Barang gagal ditambahkan”." />
                                 <Paragraph className="font-semibold">Penjelasan</Paragraph>
                                 <Paragraph>
                                     Pada jawaban diatas terdapat satu aktor (Admin) dan dua objek, yaitu MenambahBarang dan

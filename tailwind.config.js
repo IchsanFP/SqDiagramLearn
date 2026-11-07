@@ -31,7 +31,6 @@ export default {
       },
       fontFamily:{
         poppins : [ "Poppins" , "sans-serif" ],
-        monst : ["Montserrat Alternates" ],
         quantico : ["Quantico", "sans-serif"],
       },
       screens: {

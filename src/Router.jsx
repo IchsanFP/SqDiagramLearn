@@ -1,6 +1,8 @@
-import { createBrowserRouter } from "react-router-dom"
-// import ScrollToTop from "./components/ScrollToTop.jsx";
-import HomePage from './pages/HomePage.jsx'
+import { createBrowserRouter, Navigate } from "react-router-dom";
+
+import RootLayout from "./components/RootLayout.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 import M1 from "./pages/Materi/M1";
 import M2 from "./pages/Materi/M2";
@@ -26,243 +28,45 @@ import Pembahasan2 from "./pages/Latihan/Pembahasan2.jsx";
 import Pembahasan3 from "./pages/Latihan/Pembahasan3.jsx";
 import Pembahasan4 from "./pages/Latihan/Pembahasan4.jsx";
 
-import ScrollToTop from './components/ScrollToTop'
-import NotFound from "./pages/NotFound.jsx";
-
-
-// export const router = createBrowserRouter(
-//   [
-//     {path: "/", element: <HomePage/>},
-    
-//     {path:"/materi/sequence-diagram", element:<M1 />},
-//     {path:"/materi/notasi-sequence-diagram", element:<M2 />},
-//     {path:"/materi/lifeline-notation", element:<M3 />},
-//     {path:"/materi/message-arrow", element:<M4 />},
-//     {path:"/materi/activation-bar", element:<M5 />}, 
-//     {path:"/materi/cara-membuat-sequence-diagram", element:<M6 />}, 
-//     {path:"/materi/contoh-sequence-diagram", element:<M7 />}, 
-
-//     {path: "/kuis", element: <MenuKuis />},
-//     {path: "/kuis/T1", element: <T1 />},
-//     {path: "/kuis/T2", element: <T2 />},
-//     {path: "/kuis/T3", element: <T3 />},
-//     {path: "/kuis/T4", element: <T4 />},
-    
-//     {path: "/latihan", element: <MenuLatihan/>},
-//     {path: "/latihan/T1", element: <TL1/>},
-//     {path: "/latihan/T2", element: <TL2/>},
-//     {path: "/latihan/T3", element: <TL3/>},
-//     {path: "/latihan/T4", element: <TL4/>},
-//     {path: "/latihanT1/pembahasanT1", element: <Pembahasan1/>},
-//     {path: "/latihanT2/pembahasanT2", element: <Pembahasan2/>},
-//     {path: "/latihanT3/pembahasanT3", element: <Pembahasan3/>},
-//     {path: "/latihanT4/pembahasanT4", element: <Pembahasan4/>},
-//     {path: "/testing", element: <Testing/>},
-//   ]
-// )
+const page = (path, element, title) => ({ path, element, handle: { title } });
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: (
-      <>
-        <ScrollToTop /> {/* Tambahkan ScrollToTop di sini */}
-        <HomePage />
-      </>
-    ),
-   errorElement: <NotFound />,
-  },
-  {
-    path: "/materi/sequence-diagram",
-    element: (
-      <>
-        <ScrollToTop />
-        <M1 />
-      </>
-    ),
-  },
-  {
-    path: "/materi/notasi-sequence-diagram",
-    element: (
-      <>
-        <ScrollToTop />
-        <M2 />
-      </>
-    ),
-  },
-  {
-    path: "/materi/lifeline-notation",
-    element: (
-      <>
-        <ScrollToTop />
-        <M3 />
-      </>
-    ),
-  },
-  {
-    path: "/materi/message-arrow",
-    element: (
-      <>
-        <ScrollToTop />
-        <M4 />
-      </>
-    ),
-  },
-  {
-    path: "/materi/activation-bar",
-    element: (
-      <>
-        <ScrollToTop />
-        <M5 />
-      </>
-    ),
-  },
-  {
-    path: "/materi/cara-membuat-sequence-diagram",
-    element: (
-      <>
-        <ScrollToTop />
-        <M6 />
-      </>
-    ),
-  },
-  {
-    path: "/materi/contoh-sequence-diagram",
-    element: (
-      <>
-        <ScrollToTop />
-        <M7 />
-      </>
-    ),
-  },
-  {
-    path: "/kuis",
-    element: (
-      <>
-        <ScrollToTop />
-        <MenuKuis />
-      </>
-    ),
-  },
-  {
-    path: "/kuis/T1",
-    element: (
-      <>
-        <ScrollToTop />
-        <T1 />
-      </>
-    ),
-  },
-  {
-    path: "/kuis/T2",
-    element: (
-      <>
-        <ScrollToTop />
-        <T2 />
-      </>
-    ),
-  },
-  {
-    path: "/kuis/T3",
-    element: (
-      <>
-        <ScrollToTop />
-        <T3 />
-      </>
-    ),
-  },
-  {
-    path: "/kuis/T4",
-    element: (
-      <>
-        <ScrollToTop />
-        <T4 />
-      </>
-    ),
-  },
-  {
-    path: "/latihan",
-    element: (
-      <>
-        <ScrollToTop />
-        <MenuLatihan />
-      </>
-    ),
-  },
-  {
-    path: "/latihan/T1",
-    element: (
-      <>
-        <ScrollToTop />
-        <TL1 />
-      </>
-    ),
-  },
-  {
-    path: "/latihan/T2",
-    element: (
-      <>
-        <ScrollToTop />
-        <TL2 />
-      </>
-    ),
-  },
-  {
-    path: "/latihan/T3",
-    element: (
-      <>
-        <ScrollToTop />
-        <TL3 />
-      </>
-    ),
-  },
-  {
-    path: "/latihan/T4",
-    element: (
-      <>
-        <ScrollToTop />
-        <TL4 />
-      </>
-    ),
-  },
-  {
-    path: "/latihanT1/pembahasanT1",
-    element: (
-      <>
-        <ScrollToTop />
-        <Pembahasan1 />
-      </>
-    ),
-  },
-  {
-    path: "/latihanT2/pembahasanT2",
-    element: (
-      <>
-        <ScrollToTop />
-        <Pembahasan2 />
-      </>
-    ),
-  },
-  {
-    path: "/latihanT3/pembahasanT3",
-    element: (
-      <>
-        <ScrollToTop />
-        <Pembahasan3 />
-      </>
-    ),
-  },
-  {
-    path: "/latihanT4/pembahasanT4",
-    element: (
-      <>
-        <ScrollToTop />
-        <Pembahasan4 />
-      </>
-    ),
-  },
-  {
-    path: "*",
-    element: <NotFound />,
+    element: <RootLayout />,
+    errorElement: <NotFound />,
+    children: [
+      page("/", <HomePage />, "Belajar Sequence Diagram"),
+
+      page("/materi/sequence-diagram", <M1 />, "Penjelasan Umum Sequence Diagram"),
+      page("/materi/notasi-sequence-diagram", <M2 />, "Notasi dalam Sequence Diagram"),
+      page("/materi/lifeline-notation", <M3 />, "Lifeline Notation"),
+      page("/materi/message-arrow", <M4 />, "Message Arrow"),
+      page("/materi/activation-bar", <M5 />, "Activation Bar"),
+      page("/materi/cara-membuat-sequence-diagram", <M6 />, "Cara Membuat Sequence Diagram"),
+      page("/materi/contoh-sequence-diagram", <M7 />, "Contoh-contoh Sequence Diagram"),
+
+      page("/kuis", <MenuKuis />, "Kuis"),
+      page("/kuis/T1", <T1 />, "Kuis Penjelasan Umum"),
+      page("/kuis/T2", <T2 />, "Kuis Lifeline Notation"),
+      page("/kuis/T3", <T3 />, "Kuis Message Arrow"),
+      page("/kuis/T4", <T4 />, "Kuis Notasi Sequence Diagram"),
+
+      page("/latihan", <MenuLatihan />, "Latihan"),
+      page("/latihan/T1", <TL1 />, "Latihan: Proses Login Aplikasi"),
+      page("/latihan/T2", <TL2 />, "Latihan: Reservasi Tiket Bioskop"),
+      page("/latihan/T3", <TL3 />, "Latihan: Sistem Pemesanan Kamar Hotel"),
+      page("/latihan/T4", <TL4 />, "Latihan: Manajemen Barang Toko Online"),
+      page("/latihan/T1/pembahasan", <Pembahasan1 />, "Pembahasan: Proses Login Aplikasi"),
+      page("/latihan/T2/pembahasan", <Pembahasan2 />, "Pembahasan: Reservasi Tiket Bioskop"),
+      page("/latihan/T3/pembahasan", <Pembahasan3 />, "Pembahasan: Sistem Pemesanan Kamar Hotel"),
+      page("/latihan/T4/pembahasan", <Pembahasan4 />, "Pembahasan: Manajemen Barang Toko Online"),
+      // Alamat lama /latihanT1/pembahasanT1 tetap berfungsi (bookmark/tautan lama)
+      ...[1, 2, 3, 4].map((n) => ({
+        path: `/latihanT${n}/pembahasanT${n}`,
+        element: <Navigate to={`/latihan/T${n}/pembahasan`} replace />,
+      })),
+
+      page("*", <NotFound />, "Halaman tidak ditemukan"),
+    ],
   },
 ]);
