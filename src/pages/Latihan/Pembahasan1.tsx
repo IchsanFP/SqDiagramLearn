@@ -21,7 +21,7 @@ export default function Pembahasan1(){
                         </div>
 
                         <div className="flex flex-col w-full gap-9">
-                            <div className="flex w-full flex-col gap-9 border-2 rounded-lg border-navy px-12 py-5">
+                            <div className="flex w-full flex-col gap-9 border-2 rounded-lg border-navy px-4 py-5 md:px-12">
                                 <div className="w-full">
                                     <p className="font-poppins text-base font-semibold text-black text-justify">
                                         Sebuah aplikasi e-commerce memerlukan proses login untuk memberikan akses kepada pengguna. Berikut adalah deskripsi proses login:

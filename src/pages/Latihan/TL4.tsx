@@ -17,7 +17,7 @@ export default function T1_Latihan4(){
                             <h1 className="font-poppins text-black"><span className="block text-sm font-normal text-muted">Studi kasus</span><span className="block text-base font-semibold">Manajemen Barang Toko Online</span></h1>
                         </div>
 
-                        <div className="flex w-full flex-col gap-9 border-2 rounded-lg border-navy px-12 py-5">
+                        <div className="flex w-full flex-col gap-9 border-2 rounded-lg border-navy px-4 py-5 md:px-12">
                             <div className="w-full">
                                 <p className="font-poppins text-base font-semibold text-black text-justify">
                                 Buatlah sebuah sequence diagram, dimana seorang admin toko online dapat menambahkan barang.

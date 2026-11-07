@@ -74,4 +74,14 @@ export const router = createBrowserRouter([
       page("*", <NotFound />, "Halaman tidak ditemukan"),
     ],
   },
-]);
+], {
+  // Mengaktifkan perilaku React Router v7 sekarang: menghilangkan peringatan di console
+  // dan membuat upgrade ke v7 nanti tidak mengubah perilaku.
+  future: {
+    v7_relativeSplatPath: true,
+    v7_fetcherPersist: true,
+    v7_normalizeFormMethod: true,
+    v7_partialHydration: true,
+    v7_skipActionErrorRevalidation: true,
+  },
+});

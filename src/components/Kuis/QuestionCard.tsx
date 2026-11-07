@@ -24,7 +24,7 @@ export default function QuestionCard({ id, total, imgSrc, question, options, sel
           <div className="h-full rounded-full bg-action transition-all duration-300" style={{ width: `${(id / total) * 100}%` }} />
         </div>
       </div>
-      <div className="bg-card flex w-full flex-col gap-9 border-2 rounded-lg border-navy px-12 py-5">
+      <div className="bg-card flex w-full flex-col gap-9 border-2 rounded-lg border-navy px-4 py-5 md:px-12">
         <div className="w-full">
           <p className="text-base font-semibold text-justify text-black font-poppins">
             {question}

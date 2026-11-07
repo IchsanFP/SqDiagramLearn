@@ -18,7 +18,7 @@ export default function T1_Latihan1(){
                             <h1 className="font-poppins text-black"><span className="block text-sm font-normal text-muted">Studi kasus</span><span className="block text-base font-semibold">Proses Login Aplikasi</span></h1>
                         </div>
 
-                        <div className="flex w-full flex-col gap-9 border-2 rounded-lg border-navy px-12 py-5">
+                        <div className="flex w-full flex-col gap-9 border-2 rounded-lg border-navy px-4 py-5 md:px-12">
                             <div className="w-full">
                                 <p className="font-poppins text-base font-semibold text-black text-justify">
                                     Sebuah aplikasi e-commerce memerlukan proses login untuk memberikan akses kepada pengguna. Berikut adalah deskripsi proses login:
