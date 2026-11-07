@@ -4,10 +4,11 @@ import Navbar from "../../components/Header";
 import Popup from "./Popup"
 import ConfirmationPopup from "./ConfirmationPopup"
 import QuestionCard from "./QuestionCard"
+import { saveSkor } from "./skorStore";
 import type { NavClickHandler, OptionValue, Question } from "../../types";
 
 
-export default function SoalKuis({ questions }: { questions: Question[] }) {
+export default function SoalKuis({ kuisId, questions }: { kuisId: string; questions: Question[] }) {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [nextPage, setNextPage] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -74,6 +75,7 @@ export default function SoalKuis({ questions }: { questions: Question[] }) {
   const handleFinish = () => {
     setShowPopup(false);
     setFinished(true);
+    saveSkor(kuisId, score, questions.length);
   };
 
   const handleRestart = () => {

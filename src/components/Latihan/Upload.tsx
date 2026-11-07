@@ -1,6 +1,6 @@
 import { useId, useState } from "react";
 import IconUpload from "../../assets/iconUpload.svg";
-import { getJawaban, setJawaban } from "./jawabanStore";
+import { getJawaban, persistJawaban, setJawaban } from "./jawabanStore";
 
 const MAX_MB = 10;
 
@@ -9,6 +9,8 @@ export default function FileUpload({ latihanId }: { latihanId: string }) {
   const [jawaban, setJawabanState] = useState(() => getJawaban(latihanId));
   const [error, setError] = useState("");
   const [dragOver, setDragOver] = useState(false);
+  // true bila gambar terakhir tidak muat di sessionStorage (akan hilang saat refresh)
+  const [notPersisted, setNotPersisted] = useState(false);
 
   const handleFile = (file: File | undefined) => {
     if (!file) return;
@@ -21,12 +23,15 @@ export default function FileUpload({ latihanId }: { latihanId: string }) {
       return;
     }
     setError("");
+    setNotPersisted(false);
     setJawabanState(setJawaban(latihanId, file));
+    persistJawaban(latihanId, file).then((ok) => setNotPersisted(!ok));
   };
 
   const handleRemove = () => {
     setJawabanState(setJawaban(latihanId, null));
     setError("");
+    setNotPersisted(false);
   };
 
   if (jawaban) {
@@ -47,6 +52,12 @@ export default function FileUpload({ latihanId }: { latihanId: string }) {
         </div>
         <img src={jawaban.url} alt="Pratinjau sequence diagram yang Anda unggah" className="max-h-[480px] w-auto m-auto rounded-lg bg-white" />
         <input id={inputId} type="file" accept="image/*" className="sr-only" onChange={(e) => handleFile(e.target.files?.[0])} />
+        {notPersisted && (
+          <p role="status" className="text-sm text-muted">
+            Gambar ini terlalu besar untuk disimpan di browser. Gambar tetap ada selama Anda berpindah halaman,
+            tetapi akan hilang jika halaman di-refresh.
+          </p>
+        )}
         {error && <p role="alert" className="text-sm font-medium text-danger">{error}</p>}
       </div>
     );
