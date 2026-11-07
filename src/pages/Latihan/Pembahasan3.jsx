@@ -1,4 +1,5 @@
 import ButtonNav from "../../components/ButtonNav";
+import JawabanSaya from "../../components/Latihan/JawabanSaya";
 import Navbar from "../../components/Header";
 import Paragraph from "../../components/Materi/Paragraph";
 import Image from "../../components/Materi/Image";
@@ -7,7 +8,7 @@ export default function Pembahasan3(){
     return(
         <>
         <Navbar />
-        <section id="#" className="pb-5 pt-[120px] bg-secondary min-h-screen">  
+        <section id="#" className="pb-5 pt-[120px] bg-surface min-h-screen">  
             <div className="container">
                 <div className="flex flex-col m-auto max-w-[1024px] gap-3">
                     <h1 className="text-3xl font-bold text-black font-poppins text-center mb-6">
@@ -19,7 +20,7 @@ export default function Pembahasan3(){
                         </div>
 
                         <div className="flex flex-col w-full gap-9">
-                            <div className="flex w-full flex-col gap-9 border-2 rounded-[10px] border-primary px-12 py-5">
+                            <div className="flex w-full flex-col gap-9 border-2 rounded-lg border-navy px-12 py-5">
                                 <div className="w-full">
                                     <p className="font-poppins text-base font-semibold text-black text-justify">
                                         Sebuah Hotel ingin membuat sebuah aplikasi pemesanan kamar hotel. Berikut adalah use case scenario atau deskripsi pemesanan kamar hotel:
@@ -48,7 +49,8 @@ export default function Pembahasan3(){
                             </div>
                             
                             <div className="flex flex-col w-full gap-2">
-                                <p className="text-black font-poppins text-lg font-semibold">Jawaban yang benar :</p>
+                                <JawabanSaya latihanId="T3" soalPath="/latihan/T3" />
+                                <h2 className="text-black font-poppins text-lg font-semibold mt-6">Jawaban yang benar :</h2>
                                 <Image src={P3} alt="" />
                                 <Paragraph className="font-semibold">Penjelasan</Paragraph>
                                 <Paragraph>

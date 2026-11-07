@@ -43,7 +43,7 @@ export default function Modal({ labelledBy, describedBy, onEscape, className = "
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-[#000000] bg-opacity-50 px-4">
+    <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/50 px-4">
       <div
         ref={dialogRef}
         role="dialog"

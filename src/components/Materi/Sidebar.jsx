@@ -1,86 +1,102 @@
-import { Link, useLocation } from 'react-router-dom'; 
-import Navbar from '../../components/Header';
+import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import Navbar, { HEADER_HEIGHT } from '../../components/Header';
 
-export default function SidebarLayout({ MateriComponent }){
-  const location = useLocation();
+const MATERI = [
+  { name: "Penjelasan Umum Sequence Diagram", path: "/materi/sequence-diagram" },
+  { name: "Notasi dalam Sequence Diagram", path: "/materi/notasi-sequence-diagram" },
+  { name: "Lifeline Notation", path: "/materi/lifeline-notation" },
+  { name: "Message Arrow", path: "/materi/message-arrow" },
+  { name: "Activation Bar", path: "/materi/activation-bar" },
+  { name: "Cara Membuat Sequence Diagram", path: "/materi/cara-membuat-sequence-diagram" },
+  { name: "Contoh-contoh Sequence Diagram", path: "/materi/contoh-sequence-diagram" },
+];
 
-  const menuItems = [
-    { name: "Penjelasan Umum Sequence Diagram", path: "/materi/sequence-diagram" },
-    { name: "Notasi dalam Sequence Diagram", path: "/materi/notasi-sequence-diagram" },
-    { name: "Lifeline Notation", path: "/materi/lifeline-notation" },
-    { name: "Message Arrow", path: "/materi/message-arrow" },
-    { name: "Activation Bar", path: "/materi/activation-bar" },
-    { name: "Cara Membuat Sequence Diagram", path: "/materi/cara-membuat-sequence-diagram" },
-    { name: "Contoh-contoh Sequence Diagram", path: "/materi/contoh-sequence-diagram" },
-  ];
+const GAP = 16;
 
-  const [toggleNavbar, setToggleNavbar] = useState(false);
+function MateriList() {
+  const { pathname } = useLocation();
+  return (
+    <ul className="flex flex-col gap-2">
+      {MATERI.map((menu, index) => {
+        const active = pathname === menu.path;
+        return (
+          <li key={menu.path}>
+            <Link
+              to={menu.path}
+              aria-current={active ? "page" : undefined}
+              className={`group flex items-center gap-2 p-3 rounded-lg border font-poppins text-base font-medium transition-colors ${
+                active
+                  ? "bg-navy border-navy text-white"
+                  : "border-line text-black hover:bg-card"
+              }`}
+            >
+              <span className={`text-sm tabular-nums ${active ? "text-accent" : "text-muted"}`}>{index + 1}.</span>
+              <span className="flex-1">{menu.name}</span>
+              <i
+                aria-hidden="true"
+                className={`ri-arrow-right-line transition-opacity ${active ? "text-accent opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+              ></i>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+export default function SidebarLayout({ MateriComponent }) {
+  const { pathname } = useLocation();
+  const [listOpen, setListOpen] = useState(false);
+  const currentIndex = MATERI.findIndex((m) => m.path === pathname);
+  const current = MATERI[currentIndex];
 
   return (
-    <section className='min-h-screen bg-secondary'>
-      <div className="container flex flex-col">
-        <Navbar />
-        {/* Button Hamburger */}
-        <button 
-          name="hamburger" 
-          type="button" 
-          aria-label={toggleNavbar ? "Tutup daftar materi" : "Buka daftar materi"}
-          aria-expanded={toggleNavbar}
-          aria-controls="materi-sidebar"
-          className="hover:shadow-lg hover:shadow-btn block cursor-pointer p-4 text-white bg-notasi rounded-lg fixed z-50  top-[75.984px] lg:hidden" 
-          onClick={() => setToggleNavbar(!toggleNavbar)}
-        >
-          <i aria-hidden="true" className={`text-3xl text-black ri-menu-line`}></i>
-        </button>
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-surface" style={{ paddingTop: HEADER_HEIGHT + GAP }}>
+        <div className="container flex flex-col gap-4 pb-6 lg:flex-row lg:items-start lg:gap-7">
 
-        {/* Main Content */}
-        <div className="flex flex-1">
-          {/* Sidebar */}
+          {/* Desktop: sidebar sticky di kiri */}
           <nav
-            id="materi-sidebar"
             aria-label="Daftar materi"
-            className={`fixed z-40 mt-[135px] lg:mt-0 py-5 shadow-lg shadow-btn lg:shadow-none rounded-lg max-w-[350px] md:max-w-[450px] lg:max-w-max w-full bg-notasi lg:rounded-lg lg:sticky lg:w-1/3 p-5 lg:mr-7 overflow-y-auto no-scrollbar text-white transition-transform duration-300 lg:top-[75.984px] lg:h-[calc(100vh-75.984px)] ${
-              toggleNavbar ? "translate-y-0" : "hidden"
-            } lg:translate-y-0 lg:block`}
-            style={{ maxHeight: "calc(100vh - 75.984px)"}}
+            className="hidden lg:block lg:w-[320px] lg:shrink-0 lg:sticky p-5 rounded-lg bg-panel shadow-sm overflow-y-auto no-scrollbar"
+            style={{ top: HEADER_HEIGHT + GAP, maxHeight: `calc(100vh - ${HEADER_HEIGHT + GAP * 2}px)` }}
           >
-            <h2 className="p-4 mb-4 text-xl font-bold text-center rounded-lg bg-btn font-quantico">Sequence Diagram</h2>
-            <ul>
-              {menuItems.map((menu, index) => (
-                <li
-                  key={index}
-                  className={`group cursor-pointer border border-bd mb-2 p-2 font-poppins font-medium text-base text-black hover:text-white hover:bg-[#005071] hover:rounded-lg flex items-center ${
-                    location.pathname === menu.path ? "bg-btn text-white rounded-lg" : ""
-                  }`}
-                >
-                  <Link
-                    to={menu.path}
-                    className="flex-1"
-                    aria-current={location.pathname === menu.path ? "page" : undefined}
-                  >
-                    {menu.name}
-                  </Link>
-                  <span
-                    aria-hidden="true"
-                    className={`ml-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${
-                      location.pathname === menu.path ? "opacity-100" : ""
-                    }`}
-                  >
-                    <i className="ri-arrow-right-line"></i>
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <h2 className="p-4 mb-4 text-xl font-bold text-center text-white rounded-lg bg-navy font-quantico">Sequence Diagram</h2>
+            <MateriList />
           </nav>
 
-          {/* Konten yang akan berubah tergantung pada rute */}
-          <main className="flex-1 p-5 mt-[75.984px] overflow-y-auto rounded-lg bg-notasi">
+          {/* Mobile/tablet: satu tombol daftar materi di atas konten, membuka di tempat */}
+          <div className="lg:hidden">
+            <button
+              type="button"
+              aria-expanded={listOpen}
+              aria-controls="materi-list-mobile"
+              onClick={() => setListOpen((o) => !o)}
+              className="flex items-center w-full gap-3 p-3 text-left text-white rounded-lg bg-navy font-poppins"
+            >
+              <i aria-hidden="true" className="text-2xl ri-list-check"></i>
+              <span className="flex flex-col flex-1">
+                <span className="text-sm text-navy-muted">
+                  Daftar Materi{current ? ` · ${currentIndex + 1} dari ${MATERI.length}` : ""}
+                </span>
+                <span className="font-semibold">{current?.name ?? "Pilih materi"}</span>
+              </span>
+              <i aria-hidden="true" className={`text-2xl ${listOpen ? "ri-arrow-up-s-line" : "ri-arrow-down-s-line"}`}></i>
+            </button>
+            {listOpen && (
+              <nav id="materi-list-mobile" aria-label="Daftar materi" className="p-3 mt-2 rounded-lg bg-panel shadow-sm">
+                <MateriList />
+              </nav>
+            )}
+          </div>
+
+          <main className="flex-1 min-w-0 p-5 rounded-lg bg-panel shadow-sm">
             <MateriComponent />
           </main>
         </div>
       </div>
-    </section>
+    </>
   );
-};
-
+}

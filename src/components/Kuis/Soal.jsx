@@ -89,21 +89,21 @@ export default function SoalKuis({ questions }) {
     return (
       <>
         <Navbar />
-        <main className="pb-5 pt-[120px] bg-secondary min-h-screen">
+        <main className="pb-5 pt-[120px] bg-surface min-h-screen">
           <div className="container">
-            <div className="flex flex-col items-center m-auto max-w-[560px] gap-4 p-8 text-center bg-[#9CA5CE] border-2 border-primary rounded-[10px] font-poppins">
+            <div className="flex flex-col items-center m-auto max-w-[560px] gap-4 p-8 text-center bg-card border-2 border-navy rounded-lg font-poppins">
               <h1 className="text-2xl font-bold text-black">Kuis Selesai</h1>
-              <p className="text-5xl font-bold text-primary font-quantico" aria-label={`Skor ${score} dari ${questions.length}`}>
+              <p className="text-5xl font-bold text-navy font-quantico" aria-label={`Skor ${score} dari ${questions.length}`}>
                 {score}/{questions.length}
               </p>
               <p className="text-base text-black">
                 Anda menjawab benar {score} dari {questions.length} soal pada percobaan pertama.
               </p>
               <div className="flex flex-wrap justify-center gap-3 mt-2">
-                <button onClick={handleRestart} className="px-4 py-2 text-base font-medium border-2 rounded-[10px] text-primary border-btn hover:bg-[#005071] hover:text-white transition">
+                <button onClick={handleRestart} className="btn-secondary">
                   Ulangi Kuis
                 </button>
-                <button onClick={() => navigate("/kuis")} className="px-4 py-2 text-base font-medium text-white rounded-[10px] bg-btn hover:bg-[#005071] transition">
+                <button onClick={() => navigate("/kuis")} className="btn-primary">
                   Kembali ke Topik Kuis
                 </button>
               </div>
@@ -117,7 +117,7 @@ export default function SoalKuis({ questions }) {
   return (
     <>
       <Navbar onNavClick={handleNavClick} />
-      <section id="#" className="pb-5 pt-[120px] bg-secondary min-h-screen">
+      <section id="#" className="pb-5 pt-[120px] bg-surface min-h-screen">
         <div className="container">
           <div className="flex flex-col m-auto max-w-[1024px] gap-3">
             <QuestionCard
@@ -133,9 +133,7 @@ export default function SoalKuis({ questions }) {
               <button
                 onClick={handleCheckAnswer}
                 disabled={!selectedAnswer}
-                className={`flex items-center justify-center px-4 py-3 text-sm font-sm text-white transition ease-in-out rounded-[10px] font-poppins ${
-                  selectedAnswer ? "bg-btn hover:shadow-lg hover:opacity-80 duration-300 hover:bg-[#005071]" : "bg-gray-400 cursor-not-allowed"
-                }`}
+                className="btn-primary py-3"
               >
                 Cek Jawaban 
               </button>

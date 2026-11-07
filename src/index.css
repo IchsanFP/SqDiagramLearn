@@ -31,10 +31,32 @@
         outline-offset: 2px;
         box-shadow: 0 0 0 4px #ffffff;
     }
-    /* Opsi kuis: tampilkan ring di seluruh kartu jawaban, bukan hanya di radio kecilnya. */
-    label:has(input[type="radio"]:focus-visible) {
+    /* Opsi kuis & area upload: ring tampil di seluruh label, karena input-nya kecil atau tersembunyi. */
+    label:has(input:focus-visible) {
         outline: 2px solid #111111;
         outline-offset: 2px;
         box-shadow: 0 0 0 4px #ffffff;
+    }
+}
+
+/* Tombol: satu bentuk, tiga peran. Jangan menulis ulang kelas tombol di komponen. */
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center gap-1 px-4 py-2 rounded-lg font-poppins text-sm md:text-base font-medium transition-colors duration-200 max-w-fit cursor-pointer;
+    }
+    /* Aksi utama di permukaan terang */
+    .btn-primary {
+        @apply btn bg-action text-white hover:bg-action-hover;
+    }
+    /* Aksi kedua, berdampingan dengan .btn-primary */
+    .btn-secondary {
+        @apply btn border-2 border-action text-navy bg-transparent hover:bg-action-hover hover:text-white;
+    }
+    /* Aksen pink: hanya di atas latar navy */
+    .btn-accent {
+        @apply btn bg-accent text-navy hover:bg-accent-hover;
+    }
+    .btn:disabled {
+        @apply bg-disabled text-navy border-transparent cursor-not-allowed;
     }
 }

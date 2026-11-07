@@ -45,11 +45,11 @@ const notasi = [
     {
         img: NT5,
         title: "Synchronous Message",
-        desc: "Synchonous Message merupakan Pesan yang dikirim dengan menunggu respons dari penerima sebelum melanjutkan eksekusi.",
+        desc: "Synchronous Message merupakan Pesan yang dikirim dengan menunggu respons dari penerima sebelum melanjutkan eksekusi.",
     },
     {
         img: NT6,
-        title: "Synchronous Message",
+        title: "Asynchronous Message",
         desc: "Asynchronous Message merupakan Pesan yang dikirim tanpa menunggu respons langsung.",
     },
     {
@@ -59,8 +59,8 @@ const notasi = [
     },
     {
         img: NT8,
-        title: "Retrun",
-        desc: "Retrun Message digunakan untuk menunjukkan bahwa penerima pesan telah selesai memproses pesan dan mengembalikan kendali ke pemanggil pesan.",
+        title: "Return",
+        desc: "Return Message digunakan untuk menunjukkan bahwa penerima pesan telah selesai memproses pesan dan mengembalikan kendali ke pemanggil pesan.",
     },
     {
         img: NT9,
@@ -127,9 +127,9 @@ export default function Materi2() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 w-full">
                 {notasi.map((card, index) => (
-                    <div key={index} className="p-4 items-center flex flex-col gap-9 h-[420px] border-2 border-primary">
+                    <div key={index} className="p-4 items-center flex flex-col gap-9 h-[420px] border-2 border-navy">
                         <div className="gap-2 flex flex-col m-2 items-center w-full">
-                            <div className="w-28 h-28 rounded-full bg-m-notasi overflow-hidden flex items-center justify-center">
+                            <div className="w-28 h-28 rounded-full bg-figure overflow-hidden flex items-center justify-center">
                                 <img src={card.img} alt="" className="w-full h-full object-contain" />
                             </div>
                             <p className="text-center font-poppins text-base font-semibold text-black">{card.title}</p>
